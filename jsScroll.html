@@ -1,16 +1,18 @@
 <html>
+
 <head>
 	<title>Javascript Demo</title>
 	<style>
 		body {
-			background-color:black;
+			background-color: black;
 			font-family: monospace;
-			color:white;
-			font-size:50px;
+			color: white;
+			font-size: 50px;
 			text-align: center;
-			margin-top:20%;
+			margin-top: 20%;
 		}
-		#magic{
+
+		#magic {
 			color: #777;
 			border-right: 1px solid #777;
 			padding-right: 7px;
@@ -18,39 +20,42 @@
 		}
 	</style>
 </head>
+
 <body>
-    
-	Coding is <div id="magic"></div>
-    
-  <script>
+
+	Coding is
+	<div id="magic"></div>
+
+	<script>
 		var words = ["a lot of fun", "about not giving up", "challenging and empowering", "creative expression", "what I learned at CodingDojo!"],
 			el = document.getElementById('magic'),
 			word_counter = 0,
 			character_counter = 0;
 		function updateText() {
-            // console.log("el.innerHTML.length: " + el.innerHTML.length);
-            // console.log("character to add -->" + words[word_counter][character_counter] + "<-- that one.");
-            // console.log("string so far -->" + el.innerHTML + "<-- string so far.");
-            
-			if(character_counter == words[word_counter].length) {
+			// console.log("el.innerHTML.length: " + el.innerHTML.length);
+			// console.log("character to add -->" + words[word_counter][character_counter] + "<-- that one.");
+			// console.log("string so far -->" + el.innerHTML + "<-- string so far.");
+
+			if (character_counter == words[word_counter].length) {
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
 				el.innerHTML = '';  //set the html to be blank
 				//if we're displaying the last word, go back to the first word
-				if(word_counter == words.length)
+				if (word_counter == words.length)
 					word_counter = 0;
-            }
+			}
 
 			// Could have either substituted the space character for &nbsp 
 			// or used a <pre> element rather than a div
-            let characterToAdd = words[word_counter][character_counter];
-            if (characterToAdd === " ") {
-                characterToAdd = '&nbsp'
-            }
-            el.innerHTML = el.innerHTML + characterToAdd;
-            character_counter++;
+			let characterToAdd = words[word_counter][character_counter];
+			if (characterToAdd === " ") {
+				characterToAdd = '&nbsp'
+			}
+			el.innerHTML = el.innerHTML + characterToAdd;
+			character_counter++;
 		}
-		setInterval(updateText,300);
+		setInterval(updateText, 300);
 	</script>
 </body>
+
 </html>
